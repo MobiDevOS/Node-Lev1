@@ -8,14 +8,14 @@ var mongoose = require('mongoose');
 var logger = require('pomelo-logger').getLogger('mongodb-log');
 
 var options = {
-    db_user: "game",
-    db_pwd: "12345678",
-    db_host: "192.168.2.20",
+    db_user: "",
+    db_pwd: "",
+    db_host: "127.0.0.1",
     db_port: 27017,
-    db_name: "dbname"
+    db_name: "scuser"
 };
 
-var dbURL = "mongodb://" + options.db_user + ":" + options.db_pwd + "@" + options.db_host + ":" + options.db_port + "/" + options.db_name;
+var dbURL = "mongodb://" + options.db_host + ":" + options.db_port + "/" + options.db_name;
 mongoose.connect(dbURL);
 
 mongoose.connection.on('connected', function (err) {
@@ -39,7 +39,7 @@ process.on('SIGINT', function () {
 
 var DB = function () {
     this.mongoClient = {};
-    var filename = path.join(path.dirname(__dirname).replace('app', ''), 'config/table.json');
+    var filename = path.join(path.dirname(__dirname),'express','config','table.json');
     this.tabConf = JSON.parse(fs.readFileSync(path.normalize(filename)));
 };
 

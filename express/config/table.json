@@ -1,0 +1,6 @@
+{
+  "scuser": {
+    "username": "String",
+    "password": "String"
+  }
+}

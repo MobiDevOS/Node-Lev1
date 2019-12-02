@@ -1,8 +1,7 @@
 //业务封装的模块
-
-
 let esj = require('ejs');
 let path = require('path');
+let form = require('./Form.js');
 
 //首页业务模块封装
 module.exports.index=function (req,res) {
